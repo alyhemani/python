@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mainpage</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{%static 'first/basic.css' %}">
+</head>
+<body>
+	<div id="webber">
+		<div id="top">
+		{% for user in user %}
+		<h1 id="title">Hello {{user.name}}</h1>
+		{% endfor %}
+		<a id="logout" href="/logout">Logout</a>
+		{% for message in messages %}
+			{{message}}
+		{% endfor %}
+		</div>
+		<div id="left">
+			<h3>Quotable Quotes</h3>
+			<div id="quotable">
+			{% for quote in quotable %}
+				<div class="quote">
+				<p>{{quote.author}}:&nbsp;{{quote.quote}}</p>
+				<p>Posted by: <a href="/users/{{quote.creator.id}}">{{quote.creator.name}}</a></p>
+				<form action="/favorite/{{quote.id}}" method="post">
+					{% csrf_token %}
+					<input type="submit" value="Add to My List">
+				</form>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+		<div id= "right">
+			<div id="favorites">
+				<h3>Your Favorites</h3>
+			{% for favorite in favorite %}
+				<div class="quote">
+				<p>{{favorite.quote_id.author}}:&nbsp;{{favorite.quote_id.quote}}</p>
+				<p>Posted by: <a href="/users/{{favorite.quote_id.creator.id}}">{{favorite.quote_id.creator.name}}</a></p>
+				<form action="/remove/{{favorite.id}}" method="post">
+					{% csrf_token %}
+					<input type="submit" value="Remove from My List">
+				</form>
+				</div>
+			{% endfor %}
+			</div>
+			<div id="add">
+				<h3>Contribute a Quote</h3>
+				<form action="/add" method="post">
+					{% csrf_token %}
+					<div class="contribute">
+						<label>Quoted By:</label>
+						<input type="text" name="author">
+					</div>
+					<div class="contribute">
+						<label>Message:</label>
+						<textarea name="quote" rows="5" cols="21">
+						</textarea>
+					</div>
+						<input id="submit" type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

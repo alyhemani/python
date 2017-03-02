@@ -1,0 +1,63 @@
+#webber{
+	width:970px;
+	background-color:#3B3A35;
+	color:#ECDFBD;
+}
+#register{
+	display:inline-block;
+	width:300px;
+	margin-right:100px;
+	margin-left:10px;
+}
+#login{
+	display:inline-block;
+	vertical-align:top;
+	width:300px;
+}
+#title{
+	display:inline-block;
+	width:900px;
+}
+#logout{
+	display:inline-block;
+}
+#left{
+	display:inline-block;
+	width:300px;
+	border:solid black;
+	border-width:2px;
+	padding:5px;
+	margin-left:5px;
+}
+#right{
+	margin-left:200px;
+	display:inline-block;
+	vertical-align:top;
+	width:300px;
+}
+#add{
+	margin-top:50px;
+}
+#favorites{
+	border:solid black;
+	border-width:2px;
+	padding:5px;
+}
+.quote{
+	padding:5px;
+	border:solid black;
+	border-width:2px;
+	margin:5px;
+}
+a{
+	color:#5684EA;
+}
+.contribute{
+	margin-bottom:5px;
+}
+#submit{
+	width:100px;
+	font-size:20px;
+	margin-left:110px;
+	margin-top:10px;
+}

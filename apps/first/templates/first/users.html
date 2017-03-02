@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{%static 'first/basic.css' %}">
+</head>
+<body>
+	<div id="webber">
+		<a href="/main">Dashboard</a> | <a href="/logout">Logout</a>
+		<h4>Posts by {{user.creator.name}}</h4>
+		<h4>Count: {{count}}</h4>
+		{% for quote in quotes %}
+			<p>{{quote.author}}: {{quote.quote}}</p>
+		{% endfor %}
+	</div>
+</body>
+</html>

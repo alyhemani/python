@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/Registration</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{%static 'first/basic.css' %}">
+</head>
+<body>
+	<div id="webber">
+		<h1 id="title">Welcome!</h1>
+		{% for message in messages %}
+			<div>{{message}}</div>
+		{% endfor %}
+		<div id="register">
+			<h3>Register</h3>
+			<form action="/register" method="post">
+				{% csrf_token %}
+				<div>
+					<label class="label">Name:</label>
+				</div>
+				<div>
+					<input type="text" name="name">
+				</div>
+				<div>
+					<label class="label">Alias:</label>
+				</div>
+				<div>
+					<input type="text" name="alias">
+				</div>
+				<div>
+					<label class="label">Email:</label>
+				</div>
+				<div>
+					<input type="text" name="email">
+				</div>
+				<div>
+					<label class="label">Password:</label>
+				</div>
+				<div>
+					<input type="password" name="password">
+				</div>
+				<div>
+					<label class="label">Confirm PW:</label>
+				</div>
+				<div>
+					<input type="password" name="confirm">
+				</div>
+				<div>
+					<label class="label">Date of Birth:</label>
+				</div>
+				<div>
+					<input type="date" name="dob">
+				</div>
+				<div>
+					<input type="submit" value="Register">
+				</div>
+			</form>
+		</div>
+		<div id="login">
+			<h3>Login</h3>
+			<form action="login" method="post">
+				{% csrf_token %}
+				<div>
+					<label>Email:</label>
+				</div>
+				<div>
+					<input type="text" name="email">
+				</div>
+				<div>
+					<label>Password:</label>
+				</div>
+				<div>
+					<input type="password" name="password">
+				</div>
+					<input type="submit" value="Login">
+			</form>
+		</div>
+	</div>
+</body>
+</html>
